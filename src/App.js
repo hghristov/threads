@@ -20,6 +20,7 @@ export default class App extends Component {
         this.setState({ threads: data });
       })
       .catch((error) => {
+        this.setState({ failed: true });
         console.log(error);
       });
   }
@@ -34,6 +35,8 @@ export default class App extends Component {
                 <Thread data={thread} key={thread[0].thread_id} />
               )
             })
+          ) : this.state.failed ? (
+            <p className="text-center">Failed to load data.</p>
           ) : (
             <p className="text-center">Loading...</p>
           )
