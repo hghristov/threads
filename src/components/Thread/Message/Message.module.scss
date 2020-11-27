@@ -1,11 +1,56 @@
 @import '../../../scss/utilities/functions';
+@import '../../../scss/variables';
 
 .Message {
     background-color: #fff;
     border-radius: rem(8);
+
     padding: rem(22) rem(26);
+
+    display: flex;
+    justify-content: space-between;
+
+    + .Message {
+        margin-top: rem($message-margin-top);
+    }
+}
+
+.MessageContent {
+    flex: 0 1 100%;
 }
 
 .Subject {
     font-size: rem(13);
+    color: $rating-default;
+}
+
+.SubjectRatingHigh {
+    color: $rating-high;
+}
+
+.SubjectRatingLow {
+    color: $rating-low;
+}
+
+.MessageQuestion {
+    font-size: rem(11.5);
+    color: $message-question-color;
+}
+
+.MessageText {
+    margin-top: rem(10);
+    font-size: rem(12.5);
+}
+
+.MessageMeta {
+    // min-width: rem(140);
+    text-align: right;
+}
+
+.TeamName {
+    font-size: rem(13);
+}
+
+.MessageDate {
+    font-size: rem(11);
 }

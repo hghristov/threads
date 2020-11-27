@@ -1,5 +1,17 @@
 @import '../../scss/utilities/functions';
+@import '../../scss/variables';
 
 .Thread {
     border-radius: rem(8);
+
+    + .Thread {
+        margin-top: rem($message-margin-top);
+    }
 }
+
+.MessageCount {
+    background-color: $message-count-background-high;
+    border-radius: rem(6);
+    color: #fff;
+}
+

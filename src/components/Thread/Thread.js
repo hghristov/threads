@@ -17,12 +17,16 @@ export default class Thread extends Component {
             <article className={classes.Thread}>
                 {
                     this.state.messages ? (
-                        this.state.messages.map((message, i) => {
-                            console.log(message);
-                            return (
-                                <Message data={message} key={message.id} />
-                            )
-                        })
+                        <>
+                            <span>Messages: {this.state.messages.length}</span>
+
+                            { this.state.messages.map((message, i) => {
+                                console.log(message);
+                                return (
+                                    <Message data={message} key={message.id} />
+                                )
+                            }) }
+                        </>
                     ) : null
                 }
 

@@ -21,9 +21,16 @@ body {
   color: $body-color;
 }
 
+p {
+  margin: 0;
+
+  + p {
+    margin-top: rem(12);
+  }
+}
+
 .Container {
-  margin-right: auto;
-  margin-left: auto;
+  margin: rem(20) auto 0;
 
   padding-right: rem($container-padding);
   padding-left: rem($container-padding);
