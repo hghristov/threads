@@ -1,3 +1,4 @@
+`npm install`
 `json-server --watch data.json --port 3001`
 
 # Getting Started with Create React App
