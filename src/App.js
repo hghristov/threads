@@ -7,7 +7,8 @@ import classes from './App.module.scss';
 
 export default class App extends Component {
   state = {
-    threads: null
+    threads: null,
+    failed: false
   }
 
   componentDidMount() {
@@ -18,19 +19,24 @@ export default class App extends Component {
       .then(data => {
         this.setState({ threads: data });
       })
+      .catch((error) => {
+        console.log(error);
+      });
   }
 
   render() {
     return (
       <div className={classes.Container}>
         {
-          this.state.threads ? (
+          this.state.threads && this.state.threads.length ? (
             this.state.threads.map((thread, i) => {
               return (
                 <Thread data={thread} key={thread[0].thread_id} />
               )
             })
-          ) : null
+          ) : (
+            <p className="text-center">Loading...</p>
+          )
         }
       </div>
     )

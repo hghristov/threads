@@ -32,13 +32,15 @@ export default class Thread extends Component {
                 {
                     this.state.messages ? (
                         <article className={`${classes.Thread} ${this.state.isCollapsed ? 'Thread--isCollapsed' : 'Thread--isExpanded'}`} onClick={this.clickHandler}>
-                            { this.state.messages.length > 1 ? (
-                                <span className={`${classes.MessageCount} ${this.state.messages[0].score > 5 ? classes.MessageCountHigh : classes.MessageCountLow}`}>{this.state.messages.length} messages</span>
+                            { this.state.isCollapsed ? (
+                                <span className={`${classes.MessageCount} ${this.state.messages[0].score > 5 ? classes.MessageCountHigh : classes.MessageCountLow}`}>
+                                    {this.state.messages.length} messages
+                                </span>
                             ) : null }
 
                             { this.state.messages.map((message, i) => {
                                 return (
-                                    <Message data={message} key={message.id} />
+                                    <Message data={message} key={message.id} i={i} collapsed={this.state.isCollapsed} />
                                 )
                             }) }
                         </article>

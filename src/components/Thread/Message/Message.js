@@ -36,8 +36,18 @@ const message = (props) => {
         }
     }
 
+    const offset = () => {
+        if (props.collapsed && props.i > 0) {
+            return {
+                top: props.i * 8,
+                left: props.i * 8,
+                zIndex: 10 - props.i
+            }
+        }
+    }
+
     return (
-        <div className={`Message ${classes.Message}`}>
+        <div className={`Message ${classes.Message}`} style={offset()}>
             <div className={classes.MessageContent}>
                 { props.data.subject ? (
                     <h2 className={`${classes.Subject} ${props.data.score > 5 ? classes.SubjectRatingHigh : classes.SubjectRatingLow}`}>

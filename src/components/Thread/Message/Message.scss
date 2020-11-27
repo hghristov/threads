@@ -1,14 +1,19 @@
+@import '../../../scss/utilities/functions';
+@import '../../../scss/variables';
+
 .Thread--isCollapsed {
-    box-shadow: 0 0 10px #f00;
+    cursor: pointer;
+
+    &:hover .Message:first-of-type {
+        box-shadow: 0 rem(12) rem(32) rgba(black, .1);
+    }
 
     .Message:not(:first-of-type) {
         margin: 0;
         position: absolute;
         top: 0;
         left: 0;
-    }
-}
 
-.Thread--isExpanded {
-    box-shadow: 0 0 10px #0f0;
+        z-index: 1;
+    }
 }
