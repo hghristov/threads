@@ -1,0 +1,10 @@
+@import './scss/utilities/functions';
+
+.Container {
+  margin-right: auto;
+  margin-left: auto;
+
+  width: 100%;
+  min-width: rem(320);
+  max-width: rem(768);
+}

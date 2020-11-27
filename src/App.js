@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import Thread from './components/Thread/Thread';
 
+import 'normalize.css';
+import classes from './App.module.scss';
+
 export default class App extends Component {
   state = {
     threads: null
@@ -18,7 +21,7 @@ export default class App extends Component {
 
   render() {
     return (
-      <>
+      <div className={classes.Container}>
         {
           this.state.threads ? (
             this.state.threads.map((thread, i) => {
@@ -28,7 +31,7 @@ export default class App extends Component {
             })
           ) : null
         }
-      </>
+      </div>
     )
   }
 }

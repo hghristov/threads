@@ -1,0 +1,12 @@
+// em & rem conversion
+// -------------------------
+
+@function strip-units($val) {
+    @return $val / ($val * 0 + 1);
+}
+
+@function rem($size) {
+    $rem-size: strip-units($size) / 16;
+
+    @return $rem-size * 1rem;
+}
