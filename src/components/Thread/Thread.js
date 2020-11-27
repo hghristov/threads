@@ -18,10 +18,12 @@ export default class Thread extends Component {
                 {
                     this.state.messages ? (
                         <>
-                            <span>Messages: {this.state.messages.length}</span>
+                            { this.state.messages.length > 1 ? (
+                                <span className={`${classes.MessageCount} ${this.state.messages[0].score > 5 ? classes.MessageCountHigh : classes.MessageCountLow}`}>{this.state.messages.length} messages</span>
+                            ) : null }
 
                             { this.state.messages.map((message, i) => {
-                                console.log(message);
+                                // console.log(message);
                                 return (
                                     <Message data={message} key={message.id} />
                                 )
@@ -29,8 +31,6 @@ export default class Thread extends Component {
                         </>
                     ) : null
                 }
-
-                end thread
             </article>
         )
     }

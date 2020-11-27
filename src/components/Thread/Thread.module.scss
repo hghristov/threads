@@ -3,6 +3,7 @@
 
 .Thread {
     border-radius: rem(8);
+    position: relative;
 
     + .Thread {
         margin-top: rem($message-margin-top);
@@ -10,8 +11,28 @@
 }
 
 .MessageCount {
-    background-color: $message-count-background-high;
+    background-color: $message-count-background-default;
     border-radius: rem(6);
+
+    padding: rem(4) rem(15) rem(2);
+
+    display: block;
+    min-width: rem(146);
+
+    position: absolute;
+    top: rem(-10);
+    right: rem(20);
+
+    font-size: rem(11.5);
     color: #fff;
+    text-align: center;
+}
+
+.MessageCountHigh {
+    background-color: $message-count-background-high;
+}
+
+.MessageCountLow {
+    background-color: $message-count-background-low;
 }
 
