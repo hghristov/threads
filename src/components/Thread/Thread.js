@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Message from './Message/Message';
 
-import classes from './Thread.module.scss';
+import classes from './Thread.module.scss'; // scoped styles
+import './Thread.scss'; // unscoped styles
 
 export default class Thread extends Component {
     state = {
@@ -26,6 +27,14 @@ export default class Thread extends Component {
         }
     }
 
+    setBadgeClassModifiers = () => {
+        if (this.state.messages[0].score > 5) {
+            return 'MessageCountRatingHigh';
+        } else {
+            return 'MessageCountRatingLow';
+        }
+    }
+
     render() {
         return (
             <>
@@ -33,7 +42,7 @@ export default class Thread extends Component {
                     this.state.messages ? (
                         <article className={`${classes.Thread} ${this.state.isCollapsed ? 'Thread--isCollapsed' : 'Thread--isExpanded'}`} onClick={this.clickHandler}>
                             { this.state.isCollapsed ? (
-                                <span className={`${classes.MessageCount} ${this.state.messages[0].score > 5 ? classes.MessageCountHigh : classes.MessageCountLow}`}>
+                                <span className={`${classes.MessageCount} ${this.setBadgeClassModifiers()}`}>
                                     {this.state.messages.length} messages
                                 </span>
                             ) : null }

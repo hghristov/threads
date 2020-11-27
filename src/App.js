@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import Thread from './components/Thread/Thread';
 
 import 'normalize.css';
-import './App.module.scss';
-import classes from './App.module.scss';
+import classes from './App.module.scss'; // scoped styles
+import './App.scss'; // unscoped styles
 
 export default class App extends Component {
   state = {

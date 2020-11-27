@@ -29,12 +29,3 @@
 
     z-index: map-get($zindex, 'badge');
 }
-
-.MessageCountHigh {
-    background-color: $message-count-background-high;
-}
-
-.MessageCountLow {
-    background-color: $message-count-background-low;
-}
-

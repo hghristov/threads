@@ -1,0 +1,20 @@
+@import '../../scss/utilities/functions';
+@import '../../scss/variables';
+
+.MessageCountRatingHigh {
+    background-color: $message-count-background-high;
+
+    + .Message:hover {
+        box-shadow: 0 rem(12) rem(32) rgba($message-count-background-high, .15),
+                    inset 0 0 0 rem(1) $message-count-background-high;
+    }
+}
+
+.MessageCountRatingLow {
+    background-color: $message-count-background-low;
+
+    + .Message:hover {
+        box-shadow: 0 rem(12) rem(32) rgba($message-count-background-low, .15),
+                    inset 0 0 0 rem(1) $message-count-background-low;
+    }
+}

@@ -1,7 +1,7 @@
 import React from 'react';
 
-import './Message.scss';
-import classes from './Message.module.scss';
+import classes from './Message.module.scss'; // scoped styles
+import './Message.scss'; // unscoped styles
 
 const message = (props) => {
     const getDate = (date, iso = false) => {
@@ -46,11 +46,19 @@ const message = (props) => {
         }
     }
 
+    const setSubjectClassModifiers = () => {
+        if (props.data.score > 5) {
+            return classes.SubjectRatingHigh;
+        } else {
+            return classes.SubjectRatingLow;
+        }
+    }
+
     return (
         <div className={`Message ${classes.Message}`} style={offset()}>
             <div className={classes.MessageContent}>
                 { props.data.subject ? (
-                    <h2 className={`${classes.Subject} ${props.data.score > 5 ? classes.SubjectRatingHigh : classes.SubjectRatingLow}`}>
+                    <h2 className={`${classes.Subject} ${setSubjectClassModifiers()}`}>
                         {props.data.subject}
                     </h2>
                 ) : (
