@@ -35,12 +35,20 @@ export default class Thread extends Component {
         }
     }
 
+    setThreadClassModifiers = () => {
+        if (this.state.isCollapsed) {
+            return 'Thread--isCollapsed';
+        } else {
+            return 'Thread--isExpanded';
+        }
+    }
+
     render() {
         return (
             <>
                 {
                     this.state.messages ? (
-                        <article className={`${classes.Thread} ${this.state.isCollapsed ? 'Thread--isCollapsed' : 'Thread--isExpanded'}`} onClick={this.clickHandler}>
+                        <article className={`${classes.Thread} ${this.setThreadClassModifiers()}`} onClick={this.clickHandler}>
                             { this.state.isCollapsed ? (
                                 <span className={`${classes.MessageCount} ${this.setBadgeClassModifiers()}`}>
                                     {this.state.messages.length} messages
