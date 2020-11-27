@@ -20,12 +20,18 @@ export default class Thread extends Component {
         );
     }
 
+    clickHandler = (e) => {
+        if (this.state.isCollapsed) {
+            this.setState({ isCollapsed: false });
+        }
+    }
+
     render() {
         return (
             <>
                 {
                     this.state.messages ? (
-                        <article className={`${classes.Thread} ${this.state.isCollapsed ? 'Thread--isCollapsed' : 'Thread--isExpanded'}`}>
+                        <article className={`${classes.Thread} ${this.state.isCollapsed ? 'Thread--isCollapsed' : 'Thread--isExpanded'}`} onClick={this.clickHandler}>
                             { this.state.messages.length > 1 ? (
                                 <span className={`${classes.MessageCount} ${this.state.messages[0].score > 5 ? classes.MessageCountHigh : classes.MessageCountLow}`}>{this.state.messages.length} messages</span>
                             ) : null }
