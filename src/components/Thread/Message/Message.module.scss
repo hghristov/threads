@@ -1,0 +1,11 @@
+@import '../../../scss/utilities/functions';
+
+.Message {
+    background-color: #fff;
+    border-radius: rem(8);
+    padding: rem(22) rem(26);
+}
+
+.Subject {
+    font-size: rem(13);
+}

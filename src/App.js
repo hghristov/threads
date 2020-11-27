@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Thread from './components/Thread/Thread';
 
 import 'normalize.css';
+import './App.module.scss';
 import classes from './App.module.scss';
 
 export default class App extends Component {
@@ -26,7 +27,7 @@ export default class App extends Component {
           this.state.threads ? (
             this.state.threads.map((thread, i) => {
               return (
-                <Thread data={thread} key={i} />
+                <Thread data={thread} key={thread[0].thread_id} />
               )
             })
           ) : null
