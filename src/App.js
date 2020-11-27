@@ -1,4 +1,5 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
+import Thread from './components/Thread/Thread';
 
 export default class App extends Component {
   state = {
@@ -11,15 +12,23 @@ export default class App extends Component {
     fetch(dataUrl)
       .then(response => response.json())
       .then(data => {
-        console.log(data);
+        this.setState({ threads: data });
       })
   }
 
   render() {
     return (
-      <div>
-        
-      </div>
+      <>
+        {
+          this.state.threads ? (
+            this.state.threads.map((thread, i) => {
+              return (
+                <Thread data={thread} key={i} />
+              )
+            })
+          ) : null
+        }
+      </>
     )
   }
 }
