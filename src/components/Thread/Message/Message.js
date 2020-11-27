@@ -2,7 +2,7 @@ import React from 'react'
 import classes from './Message.module.scss'
 
 const message = (props) => {
-    const getDate = (date) => {
+    const getDate = (date, iso = false) => {
         const parsedDate = new Date(date),
               monthNames = [
                   'Jan',
@@ -27,7 +27,11 @@ const message = (props) => {
               day % 10 === 3 ? day + 'rd' :
               day + 'th';
 
-        return `${monthNames[month]} ${day}`;
+        if (!iso) {
+            return `${monthNames[month]} ${day}`;
+        } else {
+            return parsedDate.toISOString();
+        }
     }
 
     return (
@@ -53,7 +57,7 @@ const message = (props) => {
             <div className={classes.MessageMeta}>
                 <p className={classes.TeamName}>{props.data.team}</p>
                 {/* <time className={classes.MessageDate} datetime="">{props.data.created_at}</time> */}
-                <time className={classes.MessageDate}>{getDate(props.data.created_at)}</time>
+                <time className={classes.MessageDate} dateTime={getDate(props.data.created_at, true)}>{getDate(props.data.created_at)}</time>
             </div>
         </div>
     )
