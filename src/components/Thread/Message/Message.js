@@ -1,5 +1,7 @@
-import React from 'react'
-import classes from './Message.module.scss'
+import React from 'react';
+
+import './Message.scss';
+import classes from './Message.module.scss';
 
 const message = (props) => {
     const getDate = (date, iso = false) => {
@@ -35,7 +37,7 @@ const message = (props) => {
     }
 
     return (
-        <div className={classes.Message}>
+        <div className={`Message ${classes.Message}`}>
             <div className={classes.MessageContent}>
                 { props.data.subject ? (
                     <h2 className={`${classes.Subject} ${props.data.score > 5 ? classes.SubjectRatingHigh : classes.SubjectRatingLow}`}>
@@ -56,7 +58,6 @@ const message = (props) => {
 
             <div className={classes.MessageMeta}>
                 <p className={classes.TeamName}>{props.data.team}</p>
-                {/* <time className={classes.MessageDate} datetime="">{props.data.created_at}</time> */}
                 <time className={classes.MessageDate} dateTime={getDate(props.data.created_at, true)}>{getDate(props.data.created_at)}</time>
             </div>
         </div>

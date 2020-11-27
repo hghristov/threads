@@ -1,0 +1,14 @@
+.Thread--isCollapsed {
+    box-shadow: 0 0 10px #f00;
+
+    .Message:not(:first-of-type) {
+        margin: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+    }
+}
+
+.Thread--isExpanded {
+    box-shadow: 0 0 10px #0f0;
+}

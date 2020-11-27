@@ -4,11 +4,17 @@
 .Message {
     background-color: #fff;
     border-radius: rem(8);
+    box-shadow: 0 rem(8) rem(24) rgba(black, .07);
 
     padding: rem(22) rem(26);
 
     display: flex;
     justify-content: space-between;
+    width: 100%;
+
+    position: relative;
+
+    z-index: map-get($zindex, 'card');
 
     + .Message {
         margin-top: rem($message-margin-top);
