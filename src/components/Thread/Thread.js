@@ -28,6 +28,7 @@ export default class Thread extends Component {
     }
 
     setBadgeClassModifiers = () => {
+        console.log(this.state.messages[0].score);
         if (this.state.messages[0].score > 5) {
             return 'MessageCountRatingHigh';
         } else {

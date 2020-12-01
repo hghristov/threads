@@ -30,7 +30,9 @@ export default class App extends Component {
             <div className={classes.Container}>
                 {
                     this.state.threads && this.state.threads.length ? (
-                        this.state.threads.map((thread, i) => {
+                        this.state.threads.filter(thread => thread.length > 1).sort((a, b) => {
+                            return a[0].subject > b[0].subject ? 1 : -1;
+                        }).map((thread, i) => {
                             return (
                             <Thread data={thread} key={thread[0].thread_id} />
                             )
